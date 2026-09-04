@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import mini90Img from '../img/mini90.webp'
 import horseImg from '../img/2002horse.webp'
 import cyclingImg from '../img/cycling.webp'
 import enfjImg from '../img/enfj.webp'
@@ -19,6 +18,7 @@ const tabs = [
 ]
 
 const BASE_GAP_PX = 12
+const avatarSrc = `${import.meta.env.BASE_URL}hero-avatar.webp`
 const N_STICKERS = 10
 const MAX_CENTER_GAP = 140
 const MIN_START_GAP_V = 40
@@ -271,6 +271,12 @@ export default function Hero() {
   const [polaroid, setPolaroid] = useState({ w: 280, h: 370 })
   const [viewport, setViewport] = useState({ w: typeof window !== 'undefined' ? window.innerWidth : 1280, h: typeof window !== 'undefined' ? window.innerHeight : 800 })
   const [avRect, setAvRect] = useState(null)
+  const [avatarReady, setAvatarReady] = useState(false)
+
+  useEffect(() => {
+    const img = avatarRef.current
+    if (img && img.complete && img.naturalWidth > 0) setAvatarReady(true)
+  }, [])
 
   useEffect(() => {
     const img = avatarRef.current
@@ -461,7 +467,17 @@ export default function Hero() {
                 )
               })
             })()}
-            <img ref={avatarRef} src={mini90Img} alt="丁世贤" className="avatar-img" />
+            <img
+              ref={avatarRef}
+              src={avatarSrc}
+              alt="丁世贤"
+              className={`avatar-img${avatarReady ? ' is-loaded' : ''}`}
+              width={700}
+              height={930}
+              fetchPriority="high"
+              onLoad={() => setAvatarReady(true)}
+              onError={() => setAvatarReady(true)}
+            />
           </div>
         </div>
       </div>
