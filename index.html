@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="丁世贤 · AI 产品经理 · 浙江大学计算机硕士" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&family=Inter:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Architects+Daughter&family=ZCOOL+KuaiLe&family=ZCOOL+XiaoWei&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./fonts/yozai/Yozai-Regular/result.css" />
+    <link rel="stylesheet" href="./fonts/yozai/Yozai-Medium/result.css" />
+    <link rel="stylesheet" href="./fonts/yozai/Yozai-Bold/result.css" />
+    <title>丁世贤 · Shixian Ding — AI Product Manager</title>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+      <defs>
+        <filter id="ps-edge" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" seed="3" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="ps-edge-rough" x="-15%" y="-15%" width="130%" height="130%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="5" seed="7" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="ps-edge-soft" x="-8%" y="-8%" width="116%" height="116%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="11" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="ps-sketch" x="-12%" y="-12%" width="124%" height="124%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="21" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="6.5" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="ps-grain" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="5" result="noise"/>
+          <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.28 0" result="grainalpha"/>
+          <feComposite in="grainalpha" in2="SourceGraphic" operator="in" result="grain"/>
+          <feBlend in="SourceGraphic" in2="grain" mode="multiply"/>
+        </filter>
+        <filter id="ps-grain-heavy" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" seed="9" result="noise"/>
+          <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.42 0" result="grainalpha"/>
+          <feComposite in="grainalpha" in2="SourceGraphic" operator="in" result="grain"/>
+          <feBlend in="SourceGraphic" in2="grain" mode="multiply"/>
+        </filter>
+        <filter id="ps-paper" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="13" result="fiber"/>
+          <feColorMatrix in="fiber" type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.3  0 0 0 0 0.25  0 0 0 0.06 0"/>
+        </filter>
+        <filter id="ps-ink" x="-6%" y="-6%" width="112%" height="112%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="ps-pen-stroke" x="-4%" y="-4%" width="108%" height="108%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" seed="31" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="ps-pen-stroke-2" x="-4%" y="-4%" width="108%" height="108%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="47" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="ps-pen-stroke-3" x="-4%" y="-4%" width="108%" height="108%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="2" seed="73" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="ps-pen-stroke-4" x="-4%" y="-4%" width="108%" height="108%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" seed="19" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="ps-pen-stroke-5" x="-4%" y="-4%" width="108%" height="108%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="2" seed="89" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="ps-typewriter" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="17" result="speckle"/>
+          <feColorMatrix in="speckle" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.6 -0.55" result="specklealpha"/>
+          <feComposite in="SourceGraphic" in2="specklealpha" operator="out" result="missingink"/>
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="17" result="jitter"/>
+          <feDisplacementMap in="missingink" in2="jitter" scale="0.6" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <pattern id="ps-hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(42)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1.8" opacity="0.55"/>
+        </pattern>
+        <pattern id="ps-hatch-fine" patternUnits="userSpaceOnUse" width="3.5" height="3.5" patternTransform="rotate(42)">
+          <line x1="0" y1="0" x2="0" y2="3.5" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+        </pattern>
+        <pattern id="ps-hatch-cross" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(42)">
+          <line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-width="1.3" opacity="0.4"/>
+          <line x1="0" y1="0" x2="8" y2="0" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+        </pattern>
+        <pattern id="ps-hatch-sketch" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(38)">
+          <line x1="0" y1="0" x2="0" y2="12" stroke="currentColor" stroke-width="1.4" opacity="0.38"/>
+          <line x1="4" y1="0" x2="4" y2="12" stroke="currentColor" stroke-width="0.9" opacity="0.24"/>
+          <line x1="8" y1="0" x2="8" y2="12" stroke="currentColor" stroke-width="1.1" opacity="0.3"/>
+        </pattern>
+        <symbol id="ps-arrow" viewBox="0 0 100 40" overflow="visible">
+          <path d="M2 20 C 25 8, 55 32, 86 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" filter="url(#ps-edge)"/>
+          <path d="M86 18 L 74 10 M86 18 L 76 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" filter="url(#ps-edge)"/>
+        </symbol>
+        <symbol id="ps-circle" viewBox="0 0 100 100" overflow="visible">
+          <path d="M50 6 C 80 6, 94 26, 92 52 C 90 78, 66 94, 42 92 C 16 90, 6 68, 10 42 C 14 20, 30 8, 50 6 Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" filter="url(#ps-edge-rough)"/>
+        </symbol>
+        <symbol id="ps-underline" viewBox="0 0 200 20" overflow="visible">
+          <path d="M4 10 C 40 2, 90 16, 140 8 S 196 12, 196 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" filter="url(#ps-edge)"/>
+        </symbol>
+        <symbol id="ps-star" viewBox="0 0 50 50" overflow="visible">
+          <path d="M25 4 L30 19 L46 19 L33 29 L38 45 L25 35 L12 45 L17 29 L4 19 L20 19 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" filter="url(#ps-edge)"/>
+        </symbol>
+        <symbol id="ps-squiggle" viewBox="0 0 120 24" overflow="visible">
+          <path d="M2 12 Q 12 2, 22 12 T 42 12 T 62 12 T 82 12 T 102 12 T 118 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-i-magnifier" viewBox="0 0 48 48" overflow="visible">
+          <circle cx="19" cy="19" r="12.5" fill="var(--ps-pastel,#dbe9f5)" stroke="var(--ps-accent,#4a7aa8)" stroke-width="2.6" filter="url(#ps-edge-soft)"/>
+          <ellipse cx="14" cy="14" rx="4.5" ry="3" fill="rgba(255,255,255,0.6)" stroke="none"/>
+          <line x1="28.5" y1="28.5" x2="42" y2="42" stroke="var(--ps-accent,#4a7aa8)" stroke-width="5" stroke-linecap="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-i-book" viewBox="0 0 48 48" overflow="visible">
+          <path d="M6 12 Q 14 8 24 12 Q 34 8 42 12 L 42 38 Q 34 34 24 38 Q 14 34 6 38 Z" fill="var(--ps-pastel,#ddf0e0)" stroke="var(--ps-accent,#5a9660)" stroke-width="2.6" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <line x1="24" y1="12" x2="24" y2="38" stroke="var(--ps-accent,#5a9660)" stroke-width="2" filter="url(#ps-edge-soft)"/>
+          <line x1="11" y1="19" x2="21" y2="17.5" stroke="var(--ps-accent,#5a9660)" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+          <line x1="11" y1="24" x2="21" y2="23" stroke="var(--ps-accent,#5a9660)" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+          <line x1="11" y1="29" x2="20" y2="28.5" stroke="var(--ps-accent,#5a9660)" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+          <line x1="27" y1="17.5" x2="37" y2="19" stroke="var(--ps-accent,#5a9660)" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+          <line x1="27" y1="23" x2="37" y2="24" stroke="var(--ps-accent,#5a9660)" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+          <line x1="28" y1="28.5" x2="37" y2="29" stroke="var(--ps-accent,#5a9660)" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+        </symbol>
+        <symbol id="ps-i-puzzle" viewBox="0 0 48 48" overflow="visible">
+          <path d="M8 14 Q 8 8 14 8 Q 16 8 16 11 Q 16 14 19 14 Q 22 14 22 11 Q 22 8 25 8 Q 31 8 31 14 L 31 19 Q 34 19 34 16 Q 34 13 37 13 Q 40 13 40 16 Q 40 19 40 19 L 40 34 Q 40 40 34 40 L 14 40 Q 8 40 8 34 Z" fill="var(--ps-pastel,#ece0f2)" stroke="var(--ps-accent,#8a5fa0)" stroke-width="2.4" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <path d="M30 30 Q 36 30 36 36 Q 36 42 30 42 L 20 42 Q 14 42 14 36 L 14 31 Q 17 31 17 28 Q 17 25 20 25 Q 23 25 23 28 Q 23 31 26 31 Z" fill="var(--ps-pastel2,#fae0ea)" stroke="var(--ps-accent2,#d47a93)" stroke-width="2.4" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-i-binoculars" viewBox="0 0 48 48" overflow="visible">
+          <rect x="7" y="16" width="15" height="22" rx="6" fill="var(--ps-pastel,#faf0d0)" stroke="var(--ps-accent,#d4a843)" stroke-width="2.6" filter="url(#ps-edge-soft)"/>
+          <rect x="26" y="16" width="15" height="22" rx="6" fill="var(--ps-pastel,#faf0d0)" stroke="var(--ps-accent,#d4a843)" stroke-width="2.6" filter="url(#ps-edge-soft)"/>
+          <rect x="20" y="19" width="8" height="7" rx="2" fill="var(--ps-accent,#d4a843)" opacity="0.85"/>
+          <circle cx="14.5" cy="24" r="4.5" fill="rgba(255,255,255,0.55)" stroke="var(--ps-accent,#d4a843)" stroke-width="1.4"/>
+          <circle cx="33.5" cy="24" r="4.5" fill="rgba(255,255,255,0.55)" stroke="var(--ps-accent,#d4a843)" stroke-width="1.4"/>
+        </symbol>
+        <symbol id="ps-i-bulb" viewBox="0 0 48 48" overflow="visible">
+          <path d="M24 6 C 15 6 10 13 12 21 C 13 26 17 28 18 32 L 30 32 C 31 28 35 26 36 21 C 38 13 33 6 24 6 Z" fill="var(--ps-pastel,#dbe9f5)" stroke="var(--ps-accent,#4a7aa8)" stroke-width="2.6" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <rect x="18" y="33" width="12" height="4" rx="1.5" fill="var(--ps-accent,#4a7aa8)" opacity="0.85"/>
+          <rect x="19" y="37.5" width="10" height="3" rx="1.2" fill="var(--ps-accent,#4a7aa8)" opacity="0.6"/>
+          <line x1="24" y1="14" x2="24" y2="24" stroke="var(--ps-accent,#4a7aa8)" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+          <path d="M20 17 Q 24 22 28 17" fill="none" stroke="var(--ps-accent,#4a7aa8)" stroke-width="1.5" opacity="0.5"/>
+          <g stroke="var(--ps-accent,#4a7aa8)" stroke-width="2" stroke-linecap="round" opacity="0.7">
+            <line x1="24" y1="1" x2="24" y2="4"/>
+            <line x1="8" y1="10" x2="10.5" y2="12.5"/>
+            <line x1="40" y1="10" x2="37.5" y2="12.5"/>
+          </g>
+        </symbol>
+        <symbol id="ps-i-notepad" viewBox="0 0 48 48" overflow="visible">
+          <rect x="9" y="10" width="30" height="34" rx="3" fill="var(--ps-pastel,#fae0dc)" stroke="var(--ps-accent,#d47a6a)" stroke-width="2.6" filter="url(#ps-edge-soft)"/>
+          <g fill="var(--ps-accent,#d47a6a)">
+            <circle cx="14" cy="7" r="2.2"/>
+            <circle cx="20" cy="7" r="2.2"/>
+            <circle cx="26" cy="7" r="2.2"/>
+            <circle cx="32" cy="7" r="2.2"/>
+          </g>
+          <g stroke="var(--ps-accent,#d47a6a)" stroke-width="1.8" stroke-linecap="round" opacity="0.7">
+            <line x1="15" y1="20" x2="33" y2="20"/>
+            <line x1="15" y1="26" x2="33" y2="26"/>
+            <line x1="15" y1="32" x2="33" y2="32"/>
+            <line x1="15" y1="38" x2="27" y2="38"/>
+          </g>
+        </symbol>
+        <symbol id="ps-i-check" viewBox="0 0 48 48" overflow="visible">
+          <circle cx="24" cy="24" r="17" fill="var(--ps-pastel,#ddf0e0)" stroke="var(--ps-accent,#5a9660)" stroke-width="2.8" filter="url(#ps-edge-soft)"/>
+          <path d="M14 25 L 21 32 L 34 17" fill="none" stroke="var(--ps-accent,#5a9660)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-i-mail" viewBox="0 0 48 48" overflow="visible">
+          <rect x="6" y="12" width="36" height="26" rx="3" fill="var(--ps-pastel,#dbe9f5)" stroke="var(--ps-accent,#4a7aa8)" stroke-width="2.6" filter="url(#ps-edge-soft)"/>
+          <path d="M8 14 L 24 28 L 40 14" fill="none" stroke="var(--ps-accent,#4a7aa8)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <path d="M8 36 L 19 25" fill="none" stroke="var(--ps-accent,#4a7aa8)" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+          <path d="M40 36 L 29 25" fill="none" stroke="var(--ps-accent,#4a7aa8)" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+        </symbol>
+        <symbol id="ps-i-phone" viewBox="0 0 48 48" overflow="visible">
+          <rect x="16" y="4" width="16" height="40" rx="4" fill="var(--ps-pastel,#fae0dc)" stroke="var(--ps-accent,#d47a6a)" stroke-width="2.6" filter="url(#ps-edge-soft)"/>
+          <rect x="19" y="8" width="10" height="26" rx="1.5" fill="rgba(255,255,255,0.5)" stroke="var(--ps-accent,#d47a6a)" stroke-width="1.4"/>
+          <circle cx="24" cy="38" r="2.5" fill="var(--ps-accent,#d47a6a)" opacity="0.7"/>
+          <line x1="22" y1="38" x2="26" y2="38" stroke="var(--paper,#fff)" stroke-width="1.5" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="ps-i-chat" viewBox="0 0 48 48" overflow="visible">
+          <path d="M18 7 C9 7 3 13 3 20 C3 24 5 27 9 29 L7 34 L13 31 C15 31 17 32 18 32 C27 32 33 26 33 20 C33 13 27 7 18 7 Z" fill="var(--ps-pastel,#ddf0e0)" stroke="var(--ps-accent,#5a9660)" stroke-width="2.6" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <ellipse cx="35" cy="29" rx="10" ry="8" fill="var(--ps-pastel,#c8e4cd)" stroke="var(--ps-accent,#5a9660)" stroke-width="2.4" filter="url(#ps-edge-soft)"/>
+          <path d="M28 35 L27 39 L31 36" fill="none" stroke="var(--ps-accent,#5a9660)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <circle cx="13" cy="19" r="1.8" fill="var(--ps-accent,#5a9660)" opacity="0.75"/>
+          <circle cx="21" cy="19" r="1.8" fill="var(--ps-accent,#5a9660)" opacity="0.75"/>
+          <circle cx="31" cy="28" r="1.5" fill="var(--ps-accent,#5a9660)" opacity="0.7"/>
+          <circle cx="38" cy="28" r="1.5" fill="var(--ps-accent,#5a9660)" opacity="0.7"/>
+        </symbol>
+        <symbol id="ps-star-fill" viewBox="0 0 48 48" overflow="visible">
+          <path d="M24 4 L29 18 L44 19 L32 29 L36 44 L24 36 L12 44 L16 29 L4 19 L19 18 Z" fill="var(--ps-pastel,#fad0c8)" stroke="var(--ps-accent,#d47a6a)" stroke-width="2.4" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-heart-fill" viewBox="0 0 48 48" overflow="visible">
+          <path d="M24 42 C 10 32 4 24 4 17 C 4 11 9 6 15 6 C 19 6 22 8 24 12 C 26 8 29 6 33 6 C 39 6 44 11 44 17 C 44 24 38 32 24 42 Z" fill="var(--ps-pastel,#fae0ea)" stroke="var(--ps-accent,#d47a93)" stroke-width="2.4" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-sparkle" viewBox="0 0 48 48" overflow="visible">
+          <path d="M24 4 L27 21 L44 24 L27 27 L24 44 L21 27 L4 24 L21 21 Z" fill="var(--ps-accent,#4a7aa8)" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-connector-down" viewBox="0 0 24 60" overflow="visible">
+          <line x1="12" y1="2" x2="12" y2="48" stroke="var(--ps-accent,#d9783c)" stroke-width="3" stroke-linecap="round" filter="url(#ps-edge)"/>
+          <path d="M5 40 L12 52 L19 40" fill="none" stroke="var(--ps-accent,#d9783c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ps-edge)"/>
+        </symbol>
+        <symbol id="ps-loop-right" viewBox="0 0 120 160" overflow="visible">
+          <path d="M110 10 C 118 80 118 90 70 100 C 30 108 14 90 12 60 C 10 30 30 14 58 14" fill="none" stroke="var(--ps-accent,#2c2c2c)" stroke-width="3" stroke-linecap="round" filter="url(#ps-edge)"/>
+          <path d="M50 8 L58 14 L50 21" fill="none" stroke="var(--ps-accent,#2c2c2c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ps-edge)"/>
+        </symbol>
+        <symbol id="ps-loop-left" viewBox="0 0 120 200" overflow="visible">
+          <path d="M10 10 C -8 80 20 150 60 160 C 100 170 108 120 100 80 C 92 40 70 20 40 20" fill="none" stroke="var(--ps-accent,#d9533c)" stroke-width="3" stroke-linecap="round" filter="url(#ps-edge)"/>
+          <path d="M32 12 L40 20 L30 26" fill="none" stroke="var(--ps-accent,#d9533c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ps-edge)"/>
+        </symbol>
+        <symbol id="ps-emphasis" viewBox="0 0 40 40" overflow="visible">
+          <g stroke="currentColor" stroke-width="2.6" stroke-linecap="round" filter="url(#ps-edge-soft)">
+            <line x1="6" y1="6" x2="12" y2="12"/>
+            <line x1="20" y1="2" x2="20" y2="10"/>
+            <line x1="34" y1="6" x2="28" y2="12"/>
+          </g>
+        </symbol>
+        <symbol id="ps-dash-trail" viewBox="0 0 60 24" overflow="visible">
+          <path d="M4 18 C 18 6, 36 6, 54 14" fill="none" stroke="var(--ps-accent,#2c2c2c)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="2 7" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-paperclip" viewBox="0 0 48 48" overflow="visible">
+          <path d="M30 6 C 38 6, 42 12, 40 22 L 34 40 C 32 44, 26 44, 24 40 L 12 16 C 10 10, 16 6, 22 10 L 30 30 C 31 33, 28 35, 26 32 L 20 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-plane" viewBox="0 0 60 48" overflow="visible">
+          <path d="M4 24 L 54 8 L 36 26 L 54 42 Z" fill="var(--ps-pastel,#dbe9f5)" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <path d="M36 26 L 28 36 L 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-coffee" viewBox="0 0 48 48" overflow="visible">
+          <path d="M10 18 L 34 18 L 32 38 C 31 42, 13 42, 12 38 Z" fill="var(--ps-pastel,#f5e6c8)" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <path d="M34 22 C 42 22, 42 32, 34 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" filter="url(#ps-edge-soft)"/>
+          <path d="M16 10 C 16 13, 20 13, 20 10 M 22 8 C 22 12, 28 12, 28 8 M 18 14 C 18 17, 22 17, 22 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.6" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-leaf" viewBox="0 0 48 48" overflow="visible">
+          <path d="M8 40 C 8 18, 24 6, 42 8 C 40 28, 28 42, 8 40 Z" fill="var(--ps-pastel,#dcebd0)" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <path d="M10 38 C 18 30, 30 20, 40 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5" filter="url(#ps-edge-soft)"/>
+          <path d="M16 34 C 22 28, 28 24, 34 18 M 22 32 C 26 30, 30 26, 34 22" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity="0.35" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-cloud" viewBox="0 0 60 40" overflow="visible">
+          <path d="M14 30 C 6 30, 4 20, 12 18 C 12 10, 24 8, 28 14 C 34 8, 50 10, 48 20 C 56 20, 56 32, 46 32 Z" fill="var(--ps-pastel,#f0f0f5)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-moon" viewBox="0 0 40 48" overflow="visible">
+          <path d="M30 8 C 16 10, 8 22, 14 34 C 18 40, 28 42, 34 36 C 24 38, 16 28, 22 16 C 25 11, 29 9, 32 8 Z" fill="var(--ps-pastel,#f5eec2)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-flower" viewBox="0 0 48 48" overflow="visible">
+          <circle cx="24" cy="14" r="7" fill="var(--ps-pastel,#f5dbdb)" stroke="currentColor" stroke-width="2" filter="url(#ps-edge-soft)"/>
+          <circle cx="14" cy="22" r="7" fill="var(--ps-pastel,#f5dbdb)" stroke="currentColor" stroke-width="2" filter="url(#ps-edge-soft)"/>
+          <circle cx="34" cy="22" r="7" fill="var(--ps-pastel,#f5dbdb)" stroke="currentColor" stroke-width="2" filter="url(#ps-edge-soft)"/>
+          <circle cx="17" cy="32" r="7" fill="var(--ps-pastel,#f5dbdb)" stroke="currentColor" stroke-width="2" filter="url(#ps-edge-soft)"/>
+          <circle cx="31" cy="32" r="7" fill="var(--ps-pastel,#f5dbdb)" stroke="currentColor" stroke-width="2" filter="url(#ps-edge-soft)"/>
+          <circle cx="24" cy="24" r="5" fill="var(--ps-pastel,#f5eec2)" stroke="currentColor" stroke-width="2" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-lightning" viewBox="0 0 40 48" overflow="visible">
+          <path d="M22 4 L 10 26 L 20 26 L 16 44 L 32 20 L 22 20 Z" fill="var(--ps-pastel,#f5eec2)" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-pencil" viewBox="0 0 48 48" overflow="visible">
+          <path d="M10 38 L14 34 L36 12 L40 16 L18 38 Z" fill="var(--ps-pastel-yellow,#f5eec2)" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <path d="M34 14 L38 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" filter="url(#ps-edge-soft)"/>
+          <path d="M10 38 L14 34 L10 38 Z" fill="var(--ps-pastel-pink,#fae0ea)" stroke="currentColor" stroke-width="2" stroke-linejoin="round" filter="url(#ps-edge-soft)"/>
+          <line x1="20" y1="28" x2="30" y2="18" stroke="currentColor" stroke-width="1.4" opacity="0.4" filter="url(#ps-edge-soft)"/>
+        </symbol>
+        <symbol id="ps-bracket" viewBox="0 0 48 48" overflow="visible">
+          <path d="M14 6 C 6 6, 6 24, 6 24 C 6 24, 6 42, 14 42" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" filter="url(#ps-edge-soft)"/>
+        </symbol>
+      </defs>
+    </svg>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
