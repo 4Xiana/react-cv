@@ -1,12 +1,12 @@
 import { ArrowUpRight } from 'lucide-react'
 import { PROJECTS } from '../data/resume'
-import imgDeco2 from '../img/decoration2.png'
+import imgDeco2 from '../img/decoration2.webp'
 
 export default function Projects({ onOpenProject }) {
   return (
     <section className="section projects" id="projects" data-theme="blue">
       <div className="container">
-        <img className="pj-deco pj-deco-flowers" src={imgDeco2} alt="" aria-hidden="true" />
+        <img className="pj-deco pj-deco-flowers" src={imgDeco2} alt="" aria-hidden="true" loading="lazy" />
 
         <span className="pj-doodle pj-doodle-bulb">
           <svg className="ps-doodle" viewBox="0 0 48 48" style={{color:'var(--ps-yellow)'}}><use href="#ps-i-bulb" /></svg>

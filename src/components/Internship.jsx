@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import { INTERNSHIPS } from '../data/resume'
 
-import logoBytedance from '../img/bytedance.png'
-import logoJd from '../img/jd.png'
-import logoHuawei from '../img/huawei.png'
-import logoCxmt from '../img/cxmt.png'
-import imgWang from '../img/wang.png'
-import imgDeco1 from '../img/decoration1.png'
-import imgLucky from '../img/lucky.png'
+import logoBytedance from '../img/bytedance.webp'
+import logoJd from '../img/jd.webp'
+import logoHuawei from '../img/huawei.webp'
+import logoCxmt from '../img/cxmt.webp'
+import imgWang from '../img/wang.webp'
+import imgDeco1 from '../img/decoration1.webp'
+import imgLucky from '../img/lucky.webp'
 
 const LOGO_MAP = {
   bytedance: logoBytedance,
@@ -57,6 +57,7 @@ function InternCard({ job, index }) {
             className={`tl-logo ${isLeft ? 'tl-logo-left' : 'tl-logo-right'}`}
             src={logo}
             alt={job.company}
+            loading="lazy"
             style={logoStyle}
           />
         )}
@@ -150,9 +151,9 @@ export default function Internship() {
           <svg className="ps-doodle" viewBox="0 0 48 48" style={{color:'var(--ink-body)'}}><use href="#ps-i-check" /></svg>
         </span>
 
-        <img className="tl-deco tl-deco-wang" src={imgWang} alt="" aria-hidden="true" />
-        <img className="tl-deco tl-deco-lucky" src={imgLucky} alt="" aria-hidden="true" />
-        <img className="tl-deco tl-deco-fence" src={imgDeco1} alt="" aria-hidden="true" />
+        <img className="tl-deco tl-deco-wang" src={imgWang} alt="" aria-hidden="true" loading="lazy" />
+        <img className="tl-deco tl-deco-lucky" src={imgLucky} alt="" aria-hidden="true" loading="lazy" />
+        <img className="tl-deco tl-deco-fence" src={imgDeco1} alt="" aria-hidden="true" loading="lazy" />
 
         <div className="eyebrow reveal">/ 02 — Internship</div>
         <h2 className="reveal edu-title"><span className="hl-text">实习经历</span></h2>

@@ -1,11 +1,11 @@
 import { EDUCATION } from '../data/resume'
-import zjuSeal from '../img/zju.png'
-import ustcSeal from '../img/ustc.png'
-import idiLogo from '../img/idi.png'
-import iciLogo from '../img/ici.png'
-import driedFlower from '../img/driedflower.png'
-import iciSlogan from '../img/icislogan.png'
-import hiddenAlbum from '../img/hiddenNotForgotten.png'
+import zjuSeal from '../img/zju.webp'
+import ustcSeal from '../img/ustc.webp'
+import idiLogo from '../img/idi.webp'
+import iciLogo from '../img/ici.webp'
+import driedFlower from '../img/driedflower.webp'
+import iciSlogan from '../img/icislogan.webp'
+import hiddenAlbum from '../img/hiddenNotForgotten.webp'
 
 const SEALS = [zjuSeal, ustcSeal]
 const SEAL_ROT = [-8, -8]
@@ -45,9 +45,9 @@ export default function Education() {
         </span>
 
         {/* 右侧留白装饰：真实素材拼贴 */}
-        <img className="ed-deco ed-flower" src={driedFlower} alt="" aria-hidden="true" />
-        <img className="ed-deco ed-slogan" src={iciSlogan} alt="" aria-hidden="true" />
-        <img className="ed-deco ed-album" src={hiddenAlbum} alt="" aria-hidden="true" />
+        <img className="ed-deco ed-flower" src={driedFlower} alt="" aria-hidden="true" loading="lazy" />
+        <img className="ed-deco ed-slogan" src={iciSlogan} alt="" aria-hidden="true" loading="lazy" />
+        <img className="ed-deco ed-album" src={hiddenAlbum} alt="" aria-hidden="true" loading="lazy" />
 
         <div className="eyebrow reveal">/ 01 — Education</div>
         <h2 className="reveal edu-title"><span className="hl-text">教育背景</span></h2>
@@ -58,6 +58,7 @@ export default function Education() {
                 className="edu-seal"
                 src={SEALS[i]}
                 alt=""
+                loading="lazy"
                 style={{ transform: `rotate(${SEAL_ROT[i]}deg)` }}
               />
               <div className="edu-main">
@@ -79,7 +80,7 @@ export default function Education() {
                         >
                           {part.logo && (
                             <span className="edu-org-logo">
-                              <img src={LOGOS[part.logo]} alt={part.text} />
+                              <img src={LOGOS[part.logo]} alt={part.text} loading="lazy" />
                             </span>
                           )}
                           <span>{part.text}</span>
@@ -90,7 +91,7 @@ export default function Education() {
                     <div className="edu-org" key={j}>
                       {org.logo && (
                         <a href={org.link} target="_blank" rel="noopener noreferrer" className="edu-org-logo">
-                          <img src={LOGOS[org.logo]} alt={org.text} />
+                          <img src={LOGOS[org.logo]} alt={org.text} loading="lazy" />
                         </a>
                       )}
                       {org.link ? (

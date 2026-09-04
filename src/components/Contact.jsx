@@ -1,6 +1,6 @@
 import { PROFILE } from '../data/resume'
-import imgConnect from '../img/connect.png'
-import imgPoemH from '../img/poem_h.jpeg'
+import imgConnect from '../img/connect.webp'
+import imgPoemH from '../img/poem_h.webp'
 
 const ICON_MAP = {
   mail: 'ps-i-mail',
@@ -26,7 +26,7 @@ export default function Contact() {
     <section className="section contact-section" id="contact" data-theme="red">
       <div className="container">
         <div className="contact-inner">
-          <img className="ct-deco ct-deco-poem-h" src={imgPoemH} alt="" aria-hidden="true" />
+          <img className="ct-deco ct-deco-poem-h" src={imgPoemH} alt="" aria-hidden="true" loading="lazy" />
 
           <span className="ct-doodle ct-doodle-heart1">
             <svg className="ps-doodle" viewBox="0 0 48 48" style={{color:'var(--ps-red)'}}><use href="#ps-heart-fill" /></svg>
@@ -66,7 +66,7 @@ export default function Contact() {
           </div>
 
           <div className="connect-label reveal">
-            <img src={imgConnect} alt="Let's connect!" />
+            <img src={imgConnect} alt="Let's connect!" loading="lazy" />
           </div>
           <div className="contact-pills reveal">
             {PROFILE.contacts.map((c, i) => {

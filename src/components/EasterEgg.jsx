@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import imgSulong from '../img/sulong.png'
+import imgSulong from '../img/sulong.webp'
 
 export default function EasterEgg({ show, onClose }) {
   const [mounted, setMounted] = useState(false)
