@@ -1,3 +1,7 @@
+import { Download } from 'lucide-react'
+
+const resumeUrl = `${import.meta.env.BASE_URL}ShixianDing-CV.pdf`
+
 export default function Nav() {
   return (
     <nav>
@@ -16,6 +20,16 @@ export default function Nav() {
           <li><a href="#projects" data-idx="03">研究项目</a></li>
           <li><a href="#contact" data-idx="✉">联系方式</a></li>
         </ul>
+        <a
+          className="nav-cv-btn"
+          href={resumeUrl}
+          download="ShixianDing-CV.pdf"
+          title="下载简历 PDF"
+          aria-label="下载简历 PDF"
+        >
+          <Download size={15} strokeWidth={2.4} />
+          <span>简历</span>
+        </a>
       </div>
     </nav>
   )
