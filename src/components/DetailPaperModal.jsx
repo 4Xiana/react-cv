@@ -41,7 +41,10 @@ export default function DetailPaperModal({ data, onClose }) {
   if (!mounted || !data) return null
 
   const { detail, title } = data
-  const src = `${import.meta.env.BASE_URL}${String(detail.src).replace(/^\//, '')}`
+  const rawSrc = String(detail.src)
+  const src = /^([a-z]+:)?\/\//i.test(rawSrc) || rawSrc.startsWith('/')
+    ? rawSrc
+    : `${import.meta.env.BASE_URL}${rawSrc.replace(/^\//, '')}`
   const isHtml = detail.type === 'html'
 
   return createPortal(

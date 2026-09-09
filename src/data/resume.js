@@ -23,6 +23,8 @@ import imgPaceNasa from '../img/pace-nasa.png'
 import imgPaceApproach from '../img/pace-approach.png'
 import imgPaceInteraction1 from '../img/pace-interaction1.png'
 import imgPaceInteraction2 from '../img/pace-interaction2.png'
+import imgHuaweiRestore from '../img/huawei-restore.png'
+import imgHuaweiDerive from '../img/huawei-derive.png'
 
 export const PROFILE = {
   name: '丁世贤',
@@ -123,6 +125,7 @@ export const INTERNSHIPS = [
           'UI设计师常需从参考图片获取灵感，并基于参考内容进行修改。但参考图无法直接编辑，需还原成设计稿，人工还原费时费力。<strong>对LLM的能力边界进行测试</strong>，发现三个核心瓶颈：空间定位精度不足、复杂页面生成崩溃、无法遵守私有设计规范。',
           '<strong>结合场景提出优化方案</strong>，通过小模型辅助、分治生成和规则约束，补全了LLM的生成能力，生成页面满意率达 94%，同时实现2-5分钟的页面还原耗时，每年约为公司节省 700 Man-day。'
         ],
+        detail: { type: 'image', src: imgHuaweiRestore, caption: '规范化参考 UI 还原：小模型辅助 · 分治生成 · 规则约束的整体方案架构。' },
       },
       {
         title: '区块级UI创意衍生',
@@ -130,6 +133,7 @@ export const INTERNSHIPS = [
           'UI 设计师常面临"多出几版方案对比"的需求，手动制作变体需克服思维定势和重复劳动，耗时耗力，需要快速进行创意衍生的工具。',
           '针对此场景<strong>定义了产品功能</strong>，通过设计师访谈与设计资产走查，梳理出最常见的衍生维度（如布局结构、信息密度等）作为功能依据。使多方案产出周期从平均数小时缩短至分钟级，衍生方案采纳率约 83%，每年节省约 500 Man-day。'
         ],
+        detail: { type: 'image', src: imgHuaweiDerive, caption: '区块级 UI 创意衍生：以衍生维度驱动的多方案生成流程。' },
       }
     ],
   },
