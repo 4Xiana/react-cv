@@ -98,7 +98,7 @@ export const INTERNSHIPS = [
           '将 AI 文本与商卡<strong>混排</strong>以增强导购能力；基于典型 Query 抽样分析，设计适配不同意图的 <strong>8 类回复模式</strong>；针对信息稀疏的场景化需求设计<strong>引导式问答卡</strong>。',
           '累计完成 <strong>三个版本</strong>产品迭代，通过端到端内测，综合可用率提升约 <strong>38%</strong>。',
         ],
-        detail: { type: 'html', src: 'intern/jd-reply-modes.html', cta: '点我看演示台', wide: true },
+        detail: { type: 'html', src: 'intern/jd-reply-modes.html?v=2', cta: '点我看演示台', wide: true },
       },
       {
         title: 'AI 生成内容评测与策略优化',

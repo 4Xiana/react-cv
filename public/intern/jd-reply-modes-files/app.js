@@ -1,18 +1,217 @@
-const modes=[
-{stage:'pre',stageName:'购前导购',title:'知识科普型',icon:'book-open',query:'扫地机器人上下水版是什么意思？',desc:'面对“是什么、怎么看”的品类知识问题，先说人话，再把知识转成购买判断。',signals:['是什么','区别在哪','参数看不懂'],structure:['一句话说清概念','解释对使用体验的影响','说明适合与不适合','提供下一步选购入口'],metric:['知识后转化率','18%'],doText:'把参数翻译成用户能感知的实际体验。',dontText:'像百科一样堆术语，不帮助用户做选择。',answer:`<div class="answer-card accent"><div class="card-kicker">一句话讲明白</div><h4>上下水版 = 能自己加清水、排脏水</h4><p>它像给扫地机器人接上了“自来水和下水道”，日常基本不用你手动提水箱。</p></div><div class="answer-card"><h4>你会少做什么？</h4><p>普通基站约 2–4 天换一次水；上下水版能把这一步也自动化，更适合大户型或每天拖地。</p></div><div class="answer-card"><h4>购买前先确认</h4><p><span class="tag">安装位有进水口</span><span class="tag">附近可排水</span><span class="tag">预留电源</span></p></div><div class="quick-actions"><button>查看安装条件图解</button><button>对比普通水箱版</button></div>`},
-{stage:'pre',stageName:'购前导购',title:'需求澄清型',icon:'sliders-horizontal',query:'想买台适合家用的咖啡机',desc:'当条件不足时不盲猜，通过少量高信息量问题快速收敛需求。',signals:['适合家用','求推荐','条件缺失'],structure:['确认已知信息','只问 2–3 个关键问题','提供可点选答案','解释问题为何重要'],metric:['澄清完成率','71%'],doText:'优先问最能改变推荐结果的问题。',dontText:'连续抛出十几个问题，像填写调查问卷。',answer:`<p>可以。先确认 3 件最影响选择的事，我就能帮你把范围缩到 3 款：</p><div class="answer-card"><h4>① 你平时更爱喝哪种？</h4><div class="quick-actions"><button>美式 / 黑咖</button><button>拿铁 / 奶咖</button><button>都喝</button></div></div><div class="answer-card"><h4>② 你愿意花多少时间操作？</h4><div class="quick-actions"><button>一键完成</button><button>愿意学拉花</button></div></div><div class="answer-card"><h4>③ 预算大约是？</h4><div class="quick-actions"><button>1000 内</button><button>1000–3000</button><button>3000+</button></div></div>`},
-{stage:'pre',stageName:'购前导购',title:'方案推荐型（清单）',icon:'list-checks',query:'新手露营需要买哪些装备？预算 1000',desc:'围绕一个完整任务给出分层采购清单，区分必买、可选和暂时不用买。',signals:['需要买什么','一套配齐','预算＋完整任务'],structure:['复述目标与预算','按优先级拆分清单','给每项选择标准','汇总预算并留余量'],metric:['清单加购率','33%'],doText:'用“必买 / 可选”控制预算，允许整单或单项操作。',dontText:'把商品堆成没有先后关系的长列表。',answer:`<p>按 2 人、不过夜、预算 1000 元，我建议先把钱花在<b>遮阳、坐卧和照明</b>上：</p><div class="answer-card accent"><div class="card-kicker">必买 · 预计 ¥680</div><h4>天幕、折叠椅 ×2、防潮垫、营灯</h4><p>优先选防晒 UPF50+ 的蝶形天幕；椅子承重至少 120kg。</p></div><div class="answer-card"><div class="card-kicker">体验升级 · 预计 ¥220</div><h4>折叠桌、保温箱、收纳车</h4><p>没有车的话，收纳车建议换成 30L 双肩包。</p></div><div class="answer-card"><div class="card-kicker">先别买</div><h4>帐篷、炊具、户外电源</h4><p>第一次不过夜，用到概率低，可以先租或以后补。</p></div><div class="quick-actions"><button>¥900 一键配齐</button><button>换成轻量清单</button></div>`},
-{stage:'pre',stageName:'购前导购',title:'表单型（排行榜）',icon:'trophy',query:'2000 元内手机排行榜',desc:'用户想快速缩小范围时，按明确维度生成可解释的排行榜，而不是只按销量排序。',signals:['排行榜','前十名','哪款最强'],structure:['声明榜单口径','展示 Top 3 与得分','解释每款上榜理由','支持切换排名维度'],metric:['榜单商品点击率','47%'],doText:'把排名口径、适用人群和关键短板一起说清。',dontText:'做“万能总榜”，不说明价格和更新时间。',answer:`<div class="answer-card accent"><div class="card-kicker">2026 年 9 月 · 综合性价比榜</div><h4>价格、性能、续航、口碑加权</h4><p>仅统计京东自营在售、近 30 天评价充足的机型。</p></div><div class="rank-row"><span class="rank gold">1</span><div><b>Redmi Turbo 5</b><small>性能强，适合游戏</small></div><strong>92.4</strong></div><div class="rank-row"><span class="rank silver">2</span><div><b>iQOO Z12</b><small>续航强，充电快</small></div><strong>90.8</strong></div><div class="rank-row"><span class="rank bronze">3</span><div><b>荣耀 X70</b><small>护眼屏，长辈友好</small></div><strong>88.9</strong></div><div class="quick-actions"><button>切到游戏性能榜</button><button>切到续航榜</button></div>`},
-{stage:'during',stageName:'购中决策',title:'基础推荐型',icon:'layout-list',query:'男士保湿护肤品',desc:'沿用京东当前基础骨架：导语建立选购标准，按品类分组解释，再承接商品流和追问词。',signals:['品类搜索词','需求较宽泛','可直接承接商品'],structure:['给出简短选购导语','按功能或品类分组','每组解释后展示商品','用追问词继续收窄'],metric:['商品流点击率','31%'],doText:'导语、分组和商品理由围绕同一需求连续展开。',dontText:'商品卖点与上方导语无关，像普通搜索结果搬运。',answer:`<p>应对干燥天气，男士护肤关键在于<b>深层锁水</b>与<b>强韧屏障</b>。挑选适合的保湿好物，让肌肤保持清爽水润。</p><div class="answer-card jd-group"><h4>清爽保湿乳液</h4><p>质地轻盈易吸收，能快速渗透并长效锁水，日常使用不黏腻。</p><div class="jd-product"><div class="mock-pic orange">▮</div><div><b><span class="self">自营</span> 屈臣氏男士保湿乳</b><small>✦ 三合一保湿，干燥天不紧绷</small><strong class="jd-price">¥35 <em>已售 2000+</em></strong><span class="badges">京东超市　明日达</span></div></div><div class="jd-product"><div class="mock-pic blue">▮</div><div><b><span class="self">自营</span> 欧莱雅男士水凝露</b><small>✦ 男士专属配方，清爽不腻</small><strong class="jd-price">¥69.83 <em>已售 200万+</em></strong><span class="badges">百亿补贴　明日达</span></div></div></div><div class="quick-actions"><button>强韧肌肤屏障</button><button>清爽控油不腻</button></div>`},
-{stage:'during',stageName:'购中决策',title:'横向对比型',icon:'columns-3',query:'Mate 70 和 iPhone 16，哪个更适合我？',desc:'在候选商品之间纠结时，围绕用户真实需求比较差异并给出条件式结论。',signals:['A 和 B 哪个好','二选一','差别大吗'],structure:['先给条件式结论','比较关键差异','明确各自适合谁','保留查看详情入口'],metric:['对比后决策率','54%'],doText:'先说“谁更适合什么人”，再展开参数证据。',dontText:'只摆参数表，把判断压力原样还给用户。',answer:`<div class="answer-card accent"><div class="card-kicker">先说结论</div><h4>重视长焦拍照选 Mate 70；苹果生态与视频选 iPhone 16</h4><p>如果你现在用 Mac 或 AirPods，iPhone 16 的迁移成本会更低。</p></div><table class="compare-table"><tr><th>你在意的</th><th>Mate 70</th><th>iPhone 16</th></tr><tr><td>远景拍照</td><td class="winner">更强 ✓</td><td>够用</td></tr><tr><td>视频稳定</td><td>优秀</td><td class="winner">更稳 ✓</td></tr><tr><td>续航</td><td class="winner">更久 ✓</td><td>日常一天</td></tr><tr><td>设备联动</td><td>鸿蒙生态</td><td class="winner">苹果生态 ✓</td></tr></table><div class="quick-actions"><button>按我的旧手机推荐</button><button>查看价格差</button></div>`},
-{stage:'during',stageName:'购中决策',title:'单品决策型',icon:'badge-check',query:'这款 6599 元的游戏本值得买吗？',desc:'围绕单个商品回答“适不适合你”，同时说明优点、代价和风险。',signals:['值得买吗','适合我吗','详情页提问'],structure:['直接给结论与匹配度','说明值得的理由','揭示妥协项或风险','给替代或下单建议'],metric:['决策有用率','82%'],doText:'把“不适合谁”说清楚，建立可信度。',dontText:'只重复卖点，回避重量、噪音等真实代价。',answer:`<div class="answer-card accent"><div class="card-kicker">匹配度 88%</div><h4>值得买，但更适合插电使用的性能玩家</h4><p>RTX 5060＋高刷屏在 6599 元价位有竞争力，主流 3A 可畅玩。</p></div><div class="answer-card"><h4>✓ 值得的 3 个理由</h4><p>性能释放足 · 屏幕素质好 · 同配置价格低约 ¥400</p></div><div class="answer-card"><h4>⚠ 你要接受的代价</h4><p>约 2.4kg；高负载风扇声明显；离电续航约 4–5 小时。</p></div><div class="quick-actions"><button>看同价位轻薄款</button><button>查看真实买家反馈</button></div>`},
-{stage:'after',stageName:'购后服务',title:'问题解决型',icon:'life-buoy',query:'空气炸锅第一次使用有味道怎么办？',desc:'购买后针对安装、使用、故障和售后问题，先做风险判断，再给可执行步骤。',signals:['怎么使用','出现故障','退换 / 维修'],structure:['判断问题类型与风险','提供短步骤操作','说明注意事项','未解决时无缝转人工'],metric:['自助解决率','68%'],doText:'步骤短、顺序清楚；涉及安全时把警示放在最前。',dontText:'给笼统建议，或让用户在多个服务入口之间跳转。',answer:`<div class="answer-card accent"><div class="card-kicker">多数是新机材料受热气味</div><h4>先清洁，再空烤去味</h4><p>如果是焦糊味、冒烟或电线味，请立刻断电，不要继续尝试。</p></div><div class="steps"><div class="step"><strong>1</strong>清洗炸篮</div><div class="step"><strong>2</strong>擦干放回</div><div class="step"><strong>3</strong>200℃ 空烤</div><div class="step"><strong>4</strong>通风冷却</div></div><div class="answer-card"><h4>仍有明显异味？</h4><p>完成 2 次空烤后仍有刺鼻气味，可上传订单与视频，我来判断是否需要换货。</p></div><div class="quick-actions"><button>上传视频诊断</button><button>联系品牌客服</button></div>`}
+const modes = [
+  {
+    stage: 'pre', stageName: '发现与探索', title: '知识科普型', icon: 'book-open',
+    query: '扫地机器人上下水版是什么意思？',
+    desc: '只输出文本，用最短路径把陌生概念翻译成用户能理解、能用于选购的知识。',
+    signals: ['是什么', '区别在哪', '参数看不懂'],
+    structure: ['一句话定义概念', '解释实际体验差异', '说明适合与不适合', '给出购买前检查项'],
+    metric: ['知识有用率', '86%'],
+    doText: '保持纯文本，重点词加粗，三屏内讲清楚。',
+    dontText: '插入商品卡打断理解，或堆砌行业术语。',
+    answer: `<p><b>上下水版</b>，就是能自动给基站加清水、排脏水的扫地机器人。</p><p>你可以把它理解成给机器人接上了“自来水和下水道”：普通水箱版大约每 2–4 天需要手动换水，上下水版基本不用提水箱，更适合大户型、每天拖地，或不想频繁维护的人。</p><p>购买前要确认安装位置附近有<b>进水口、排水口和电源</b>。如果是租房、安装位离水管较远，普通水箱版会更省事。</p>`
+  },
+  {
+    stage: 'pre', stageName: '发现与探索', title: '需求澄清型', icon: 'sliders-horizontal',
+    query: '想买台适合家用的咖啡机',
+    desc: '用一张可翻页的大筛选卡，每页只问一个真正影响推荐结果的问题。',
+    signals: ['求推荐', '条件不足', '品类范围宽'],
+    structure: ['说明只需回答几个问题', '逐页询问关键偏好', '展示当前筛选进度', '完成后自动生成推荐'],
+    metric: ['筛选完成率', '74%'],
+    doText: '一页一问、选项够大，并允许返回修改。',
+    dontText: '一次展示十几个筛选条件，造成填写压力。',
+    answer: `<p>可以，回答 3 个问题，我就能帮你把范围缩到最适合的 3 款。</p>
+      <div class="filter-card" data-page="0">
+        <div class="filter-top"><span>帮我挑咖啡机</span><b><i class="filter-current">1</i> / 3</b></div>
+        <div class="filter-progress"><i></i></div>
+        <div class="filter-page active"><small>第 1 题</small><h4>平时最常喝什么？</h4><button class="choice selected">拿铁 / 奶咖</button><button class="choice">美式 / 黑咖</button><button class="choice">两种都喝</button></div>
+        <div class="filter-page"><small>第 2 题</small><h4>你希望操作多简单？</h4><button class="choice selected">一键完成</button><button class="choice">愿意手动打奶泡</button><button class="choice">想学专业萃取</button></div>
+        <div class="filter-page"><small>第 3 题</small><h4>预算大约是多少？</h4><button class="choice">1000 元内</button><button class="choice selected">1000–3000 元</button><button class="choice">3000 元以上</button></div>
+        <button class="filter-next">下一题 <span>→</span></button>
+      </div>`
+  },
+  {
+    stage: 'pre', stageName: '发现与探索', title: '清单表单型', icon: 'table-2',
+    query: '新手露营需要买哪些装备？预算 1000',
+    desc: '先用一段文字交代方案，再用表格清单讲清物品、优先级、规格和预算。',
+    signals: ['需要买什么', '一套配齐', '任务型采购'],
+    structure: ['首段总结方案原则', '表格列出采购项', '标记必买与可选', '合计预算并留余量'],
+    metric: ['清单加购率', '38%'],
+    doText: '表格字段少而关键，优先级一眼能看懂。',
+    dontText: '使用多个散卡，让完整清单难以浏览和比较。',
+    answer: `<p>按 2 人、不过夜、预算 1000 元，建议先把钱花在<b>遮阳、坐卧和照明</b>上；帐篷、炊具和户外电源第一次可以先不买。</p>
+      <div class="list-table"><div class="list-head"><span>装备</span><span>优先级</span><span>建议规格</span><span>预算</span></div>
+      <div><b>蝶形天幕</b><span class="must">必买</span><small>UPF50+</small><strong>¥260</strong></div>
+      <div><b>折叠椅 ×2</b><span class="must">必买</span><small>承重 120kg</small><strong>¥240</strong></div>
+      <div><b>防潮垫</b><span class="must">必买</span><small>2m × 2m</small><strong>¥120</strong></div>
+      <div><b>营灯</b><span class="must">必买</span><small>续航 8h+</small><strong>¥80</strong></div>
+      <div><b>折叠桌</b><span class="optional">可选</span><small>铝合金</small><strong>¥160</strong></div>
+      <div class="list-total"><b>建议合计</b><span>预留 ¥140</span><strong>¥860</strong></div></div>`
+  },
+  {
+    stage: 'pre', stageName: '发现与探索', title: '基础推荐型', icon: 'layout-list',
+    query: '男士保湿护肤品',
+    desc: '首段建立选购标准，下面用三个不同方向的方案楼层承接，每层包含简单概括和 3 张横向商品卡。',
+    signals: ['宽泛品类词', '可直接推荐', '存在多种解决方向'],
+    structure: ['首段给出选择标准', '拆成三个解决方向', '每层概括适合人群', '每层纵向排列三张横卡'],
+    metric: ['方案楼层点击率', '35%'],
+    doText: '三个楼层必须有明显差异；横卡要突出商品名、理由和价格。',
+    dontText: '使用竖卡挤压商品信息，或把所有商品混成一条瀑布流。',
+    answer: `<p>应对干燥天气，男士护肤可按肤感和需求分成 3 个方向：<b>清爽补水、强韧屏障、长效锁水</b>。</p>
+      <div class="solution-floor"><div class="floor-title"><div><b>清爽补水</b><small>油皮、怕黏腻，适合日常快速保湿</small></div><span>01</span></div><div class="horizontal-products"><article><i class="bottle cyan">▮</i><div><b>屈臣氏男士保湿乳</b><small>三合一保湿，吸收快不紧绷</small><strong>¥35</strong></div></article><article><i class="bottle blue">▮</i><div><b>欧莱雅男士水凝露</b><small>清爽水感，油皮日常可用</small><strong>¥69</strong></div></article><article><i class="bottle navy">▮</i><div><b>自然堂冰川保湿露</b><small>冰川水配方，补水不黏腻</small><strong>¥44</strong></div></article></div></div>
+      <div class="solution-floor"><div class="floor-title"><div><b>强韧屏障</b><small>干敏、换季紧绷，优先神经酰胺</small></div><span>02</span></div><div class="horizontal-products"><article><i class="bottle amber">▮</i><div><b>珂润润浸保湿乳</b><small>神经酰胺护理，敏感肌友好</small><strong>¥98</strong></div></article><article><i class="bottle cream">▮</i><div><b>适乐肤修护乳液</b><small>长效保湿，身体面部可用</small><strong>¥89</strong></div></article><article><i class="bottle green">▮</i><div><b>玉泽屏障修护乳</b><small>换季泛红干痒优先</small><strong>¥129</strong></div></article></div></div>
+      <div class="solution-floor"><div class="floor-title"><div><b>长效锁水</b><small>秋冬干燥、起皮，适合面霜质地</small></div><span>03</span></div><div class="horizontal-products"><article><i class="bottle red">▮</i><div><b>UNO 男士多效面霜</b><small>一罐多效，适合懒人护肤</small><strong>¥72</strong></div></article><article><i class="bottle violet">▮</i><div><b>科颜氏高保湿面霜</b><small>秋冬强保湿，适合干皮</small><strong>¥245</strong></div></article><article><i class="bottle gray">▮</i><div><b>碧欧泉男士面霜</b><small>滋润与肤感更均衡</small><strong>¥329</strong></div></article></div></div>`
+  },
+  {
+    stage: 'pre', stageName: '发现与探索', title: '风格推荐型', icon: 'palette',
+    query: '适合秋天通勤的女士包包',
+    desc: '简短定调后，一行两个展示“商品大图＋风格说明”的内容入口；点击后再拉起商品弹层。',
+    signals: ['风格表达', '穿搭场景', '审美偏好'],
+    structure: ['一句话给风格建议', '双列展示风格内容', '大图与风格词建立认知', '点击后弹层承接商品'],
+    metric: ['风格入口点击率', '51%'],
+    doText: '主页面只帮助选风格，商品价格等交易信息放进弹层。',
+    dontText: '把风格入口直接做成商卡，提前塞入商品名和价格。',
+    answer: `<p>秋天通勤可以从 4 种耐看风格入手：选低饱和颜色，更容易搭西装、风衣和针织衫。</p>
+      <div class="style-grid">
+        <button class="style-tile" data-style="静奢通勤"><div class="style-visual camel"><span>QUIET<br>LUXURY</span><i>👜</i></div><div class="style-info"><small>风格 01</small><h4>静奢通勤</h4><p>焦糖棕 · 真皮<br>简洁金属件</p><em>查看同风格好物 →</em></div></button>
+        <button class="style-tile" data-style="复古学院"><div class="style-visual olive"><span>VINTAGE<br>COLLEGE</span><i>💼</i></div><div class="style-info"><small>风格 02</small><h4>复古学院</h4><p>橄榄绿 · 方正<br>翻盖与锁扣</p><em>查看同风格好物 →</em></div></button>
+        <button class="style-tile" data-style="极简都市"><div class="style-visual graphite"><span>URBAN<br>MINIMAL</span><i>👜</i></div><div class="style-info"><small>风格 03</small><h4>极简都市</h4><p>石墨灰 · 廓形<br>少装饰设计</p><em>查看同风格好物 →</em></div></button>
+        <button class="style-tile" data-style="柔和知性"><div class="style-visual blush"><span>SOFT<br>ELEGANCE</span><i>👝</i></div><div class="style-info"><small>风格 04</small><h4>柔和知性</h4><p>燕麦色 · 圆润<br>细腻皮质</p><em>查看同风格好物 →</em></div></button>
+      </div>`
+  },
+  {
+    stage: 'during', stageName: '对比与决策', title: '横向对比型', icon: 'columns-3',
+    query: 'Mate 70 和 iPhone 16，哪个更适合我？',
+    desc: '用复杂对比表承载多个维度，同时固定商品列与关键结论，支持快速扫读。',
+    signals: ['A 和 B 哪个好', '多商品比较', '参数差异'],
+    structure: ['先给条件式结论', '复杂表格对齐维度', '高亮胜出项', '补充适合人群'],
+    metric: ['对比后决策率', '56%'],
+    doText: '比较用户真正关心的维度，并把胜出原因写进单元格。',
+    dontText: '把规格表直接搬过来，不提供判断。',
+    answer: `<p><b>重视长焦拍照和续航选 Mate 70；苹果生态与视频创作选 iPhone 16。</b></p>
+      <div class="complex-table"><div class="ct-row ct-head"><span>关键维度</span><b>Mate 70</b><b>iPhone 16</b></div>
+      <div class="ct-row"><span>影像<br><small>权重 30%</small></span><b class="win">长焦更强<br><i>5× 光学变焦</i></b><b>视频更稳<br><i>4K 杜比视界</i></b></div>
+      <div class="ct-row"><span>续航<br><small>权重 25%</small></span><b class="win">约 1.3 天<br><i>充电更快</i></b><b>约 1 天<br><i>无线生态好</i></b></div>
+      <div class="ct-row"><span>生态<br><small>权重 25%</small></span><b>鸿蒙互联<br><i>多屏协同</i></b><b class="win">苹果生态<br><i>设备接力</i></b></div>
+      <div class="ct-row"><span>价格<br><small>权重 20%</small></span><b class="win">¥5,499<br><i>同存储低 ¥500</i></b><b>¥5,999<br><i>保值率较高</i></b></div>
+      <div class="ct-score"><span>按当前权重</span><b>Mate 70　89 分</b><b>iPhone 16　86 分</b></div></div>`
+  },
+  {
+    stage: 'during', stageName: '对比与决策', title: '单品决策型', icon: 'badge-check',
+    query: '这款 6599 元的游戏本值得买吗？',
+    desc: '只输出文本，围绕单个商品直接回答是否值得，并坦诚说明妥协项。',
+    signals: ['值得买吗', '适合我吗', '详情页提问'],
+    structure: ['直接给结论', '说明三个核心理由', '揭示主要代价', '给出适合与不适合人群'],
+    metric: ['决策有用率', '82%'],
+    doText: '保持纯文本，把“不适合谁”说清楚。',
+    dontText: '重复商品页卖点，或回避重量、噪音等代价。',
+    answer: `<p><b>值得买，但更适合插电使用、看重游戏性能的人。</b></p><p>这款的 RTX 5060、高刷屏和散热释放在 6599 元价位有竞争力，主流 3A 游戏可以在 2K 分辨率下流畅运行，同配置里大约便宜 400 元。</p><p>你需要接受的代价是：整机约 2.4kg，高负载时风扇声较明显，离电续航约 4–5 小时。如果你经常背电脑通勤或全天不插电，建议换轻薄全能本；如果主要放在宿舍或家里玩游戏，它是当前价位比较稳的选择。</p>`
+  },
+  {
+    stage: 'during', stageName: '对比与决策', title: '辅助决策型', icon: 'list-ordered',
+    query: '最好的三款扫地机',
+    desc: '用户需要快速收敛时，只保留首段说明和有限个有优先级的商品卡。',
+    signals: ['最好的三款', '帮我收敛', '直接给结论'],
+    structure: ['首段声明选择口径', '展示有限个优先级商卡', '每款承担不同角色', '明确首选及替代条件'],
+    metric: ['首选商品点击率', '49%'],
+    doText: '卡片数量严格有限，排序有依据，第一名结论明确。',
+    dontText: '扩展成长榜单，重新增加用户选择负担。',
+    answer: `<p>综合清洁能力、避障、基站自动化和近 30 天口碑，我把选择收敛成 3 款：<b>首选追觅 X60，预算优先选石头 P20，毛发家庭选科沃斯 T80。</b></p>
+      <div class="priority-card first"><span class="priority">首选</span><div class="priority-pic cyan">◉</div><div><small>综合最均衡</small><h4>追觅 X60 Ultra</h4><p>低矮空间覆盖好，边角清洁和避障稳定</p><strong>¥4,299</strong><em>匹配度 94%</em></div></div>
+      <div class="priority-card"><span class="priority">02</span><div class="priority-pic gray">◉</div><div><small>预算优先</small><h4>石头 P20 Pro</h4><p>核心清洁能力完整，价格低约 ¥800</p><strong>¥3,499</strong><em>匹配度 90%</em></div></div>
+      <div class="priority-card"><span class="priority">03</span><div class="priority-pic violet">◉</div><div><small>养宠家庭</small><h4>科沃斯 T80 Max</h4><p>滚刷防缠绕更强，适合长发和宠物毛</p><strong>¥3,899</strong><em>匹配度 88%</em></div></div>`
+  }
 ];
-let current=4;
-const $=s=>document.querySelector(s);
-function renderList(){const list=$('#modeList');list.innerHTML=modes.map((m,i)=>`<button class="mode-item ${i===current?'active':''}" data-index="${i}"><span class="number">${String(i+1).padStart(2,'0')}</span><span class="mini-icon"><i data-lucide="${m.icon}"></i></span><span><strong>${m.title}</strong><small>${m.stageName}</small></span><i class="arrow" data-lucide="chevron-right"></i></button>`).join('');list.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>selectMode(+b.dataset.index)));}
-function selectMode(i){current=i;const m=modes[i];renderList();$('#modeNumber').textContent=String(i+1).padStart(2,'0');$('#stageName').textContent=m.stageName;$('#modeTitle').textContent=m.title;$('#modeDescription').textContent=m.desc;$('#queryText').textContent=m.query;$('#signals').innerHTML=m.signals.map(s=>`<span>${s}</span>`).join('');$('#structureList').innerHTML=m.structure.map(s=>`<li>${s}</li>`).join('');$('#metricName').textContent=m.metric[0];$('#metricValue').textContent=m.metric[1];$('#doText').textContent=m.doText;$('#dontText').textContent=m.dontText;$('#modeIcon').innerHTML=`<i data-lucide="${m.icon}"></i>`;$('#conversation').innerHTML=`<div class="ai-row"><div class="ai-avatar">JD</div><div class="ai-content">${m.answer}<div class="quick-actions"><button>👍 有帮助</button><button>👎 需改进</button></div></div></div>`;document.querySelectorAll('.stage').forEach(s=>s.classList.toggle('active',s.dataset.stage===m.stage));$('#journeyProgress').style.width=m.stage==='pre'?'18%':m.stage==='during'?'66%':'100%';lucide.createIcons();}
-document.querySelectorAll('.stage').forEach(btn=>btn.addEventListener('click',()=>{const idx=modes.findIndex(m=>m.stage===btn.dataset.stage);selectMode(idx);}));
-document.querySelectorAll('.view-tabs button').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.view-tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');$('#conversation').classList.toggle('structure-overlay',btn.dataset.view==='structure');}));
-$('#helpBtn').addEventListener('click',()=>{const toast=$('#toast');toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3500);});
-renderList();selectMode(current);setTimeout(()=>$('#toast').classList.add('show'),700);setTimeout(()=>$('#toast').classList.remove('show'),4200);
+
+let current = 3;
+const modeParam = new URLSearchParams(window.location.search).get('mode');
+const requestedMode = modeParam === null ? NaN : Number(modeParam);
+if (Number.isInteger(requestedMode) && requestedMode >= 0 && requestedMode < modes.length) current = requestedMode;
+const $ = selector => document.querySelector(selector);
+
+function renderList() {
+  const list = $('#modeList');
+  list.innerHTML = modes.map((m, i) => `<button class="mode-item ${i === current ? 'active' : ''}" data-index="${i}"><span class="number">${String(i + 1).padStart(2, '0')}</span><span class="mini-icon"><i data-lucide="${m.icon}"></i></span><span><strong>${m.title}</strong><small>${m.stageName}</small></span><i class="arrow" data-lucide="chevron-right"></i></button>`).join('');
+  list.querySelectorAll('button').forEach(button => button.addEventListener('click', () => selectMode(+button.dataset.index)));
+}
+
+function setupFilterCard() {
+  const card = document.querySelector('.filter-card');
+  if (!card) return;
+  card.querySelectorAll('.choice').forEach(choice => choice.addEventListener('click', () => {
+    choice.parentElement.querySelectorAll('.choice').forEach(item => item.classList.remove('selected'));
+    choice.classList.add('selected');
+  }));
+  card.querySelector('.filter-next').addEventListener('click', event => {
+    let page = Number(card.dataset.page);
+    if (page === 2) { event.currentTarget.innerHTML = '筛选完成 ✓'; return; }
+    page += 1;
+    card.dataset.page = page;
+    card.querySelectorAll('.filter-page').forEach((item, index) => item.classList.toggle('active', index === page));
+    card.querySelector('.filter-current').textContent = page + 1;
+    card.querySelector('.filter-progress i').style.width = `${(page + 1) * 33.33}%`;
+    event.currentTarget.innerHTML = page === 2 ? '生成推荐 <span>→</span>' : '下一题 <span>→</span>';
+  });
+}
+
+function setupStyleTiles() {
+  const tiles = document.querySelectorAll('.style-tile');
+  if (!tiles.length) return;
+  const products = {
+    '静奢通勤': [['Songmont 托特包', '真皮大容量', '¥1,699'], ['半坡饰族腋下包', '焦糖棕头层牛皮', '¥899'], ['莱夫托特包', '简洁金属扣', '¥729']],
+    '复古学院': [['CHARLES & KEITH', '方正翻盖包', '¥599'], ['PEDRO 邮差包', '复古锁扣', '¥729'], ['Fossil 剑桥包', '植鞣牛皮', '¥1,299']],
+    '极简都市': [['古良吉吉托特包', '石墨灰廓形', '¥869'], ['Cafuné 通勤包', '极简弧线', '¥2,380'], ['北山制包方包', '无标识设计', '¥639']],
+    '柔和知性': [['DISSONA 贝壳包', '燕麦柔雾色', '¥1,259'], ['Colette 单肩包', '圆润包型', '¥799'], ['Maison 方糖包', '细腻粒面皮', '¥999']]
+  };
+  tiles.forEach(tile => tile.addEventListener('click', () => {
+    const style = tile.dataset.style;
+    document.querySelector('.style-modal')?.remove();
+    const rows = products[style].map((item, index) => `<article><i class="sheet-pic tone-${index + 1}">👜</i><div><small>京东自营 · 明日达</small><b>${item[0]}</b><p>${item[1]}</p><strong>${item[2]}</strong></div></article>`).join('');
+    document.querySelector('.phone').insertAdjacentHTML('beforeend', `<div class="style-modal"><button class="sheet-backdrop" aria-label="关闭弹层"></button><section class="style-sheet"><div class="sheet-handle"></div><div class="sheet-head"><div><small>同风格好物</small><h3>${style}</h3></div><button class="sheet-close">×</button></div><div class="sheet-products">${rows}</div><button class="sheet-more">查看全部 ${style} 商品</button></section></div>`);
+    const modal = document.querySelector('.style-modal');
+    requestAnimationFrame(() => modal.classList.add('open'));
+    modal.querySelectorAll('.sheet-close,.sheet-backdrop').forEach(button => button.addEventListener('click', () => {
+      modal.classList.remove('open');
+      setTimeout(() => modal.remove(), 250);
+    }));
+  }));
+}
+
+function selectMode(index) {
+  current = index;
+  const mode = modes[index];
+  renderList();
+  $('#modeNumber').textContent = String(index + 1).padStart(2, '0');
+  $('#stageName').textContent = mode.stageName;
+  $('#modeTitle').textContent = mode.title;
+  $('#modeDescription').textContent = mode.desc;
+  $('#queryText').textContent = mode.query;
+  $('#signals').innerHTML = mode.signals.map(signal => `<span>${signal}</span>`).join('');
+  $('#structureList').innerHTML = mode.structure.map(item => `<li>${item}</li>`).join('');
+  $('#doText').textContent = mode.doText;
+  $('#dontText').textContent = mode.dontText;
+  $('#modeIcon').innerHTML = `<i data-lucide="${mode.icon}"></i>`;
+  $('#conversation').innerHTML = `<div class="ai-row"><div class="ai-avatar">JD</div><div class="ai-content">${mode.answer}<div class="quick-actions"><button>👍 有帮助</button><button>👎 需改进</button></div></div></div>`;
+  document.querySelectorAll('.stage').forEach(stage => stage.classList.toggle('active', stage.dataset.stage === mode.stage));
+  $('#journeyProgress').style.width = mode.stage === 'pre' ? '18%' : '100%';
+  setupFilterCard();
+  setupStyleTiles();
+  lucide.createIcons();
+}
+
+document.querySelectorAll('.stage').forEach(button => button.addEventListener('click', () => {
+  selectMode(modes.findIndex(mode => mode.stage === button.dataset.stage));
+}));
+document.querySelectorAll('.view-tabs button').forEach(button => button.addEventListener('click', () => {
+  document.querySelectorAll('.view-tabs button').forEach(item => item.classList.remove('active'));
+  button.classList.add('active');
+  $('#conversation').classList.toggle('structure-overlay', button.dataset.view === 'structure');
+}));
+$('#helpBtn').addEventListener('click', () => {
+  const toast = $('#toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3500);
+});
+renderList();
+selectMode(current);
+setTimeout(() => $('#toast').classList.add('show'), 700);
+setTimeout(() => $('#toast').classList.remove('show'), 4200);
