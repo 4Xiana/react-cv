@@ -25,6 +25,7 @@ import imgPaceInteraction1 from '../img/pace-interaction1.png'
 import imgPaceInteraction2 from '../img/pace-interaction2.png'
 import imgHuaweiRestore from '../img/huawei-restore.png'
 import imgHuaweiDerive from '../img/huawei-derive.png'
+import imgJdRubrics from '../img/jd-rubrics.png'
 
 export const PROFILE = {
   name: '丁世贤',
@@ -97,6 +98,7 @@ export const INTERNSHIPS = [
           '将 AI 文本与商卡<strong>混排</strong>以增强导购能力；基于典型 Query 抽样分析，设计适配不同意图的 <strong>8 类回复模式</strong>；针对信息稀疏的场景化需求设计<strong>引导式问答卡</strong>。',
           '累计完成 <strong>三个版本</strong>产品迭代，通过端到端内测，综合可用率提升约 <strong>38%</strong>。',
         ],
+        detail: { type: 'html', src: 'intern/jd-reply-modes.html', cta: '点我看演示台', wide: true },
       },
       {
         title: 'AI 生成内容评测与策略优化',
@@ -105,6 +107,7 @@ export const INTERNSHIPS = [
           '针对生成结果不稳定、问题难以定位的痛点，设计<strong>评测维度与问题分类体系</strong>，并沉淀自动化评测 Skill。',
           '以"推荐理由"模块为例，归纳出<strong>可用性、有效性、多样性、个性化</strong> 4 个大方向及 <strong>19 类细分问题</strong>，针对性制定优化策略，推动综合可用率由 <strong>48% 提升至 85%</strong>。',
         ],
+        detail: { type: 'image', src: imgJdRubrics, caption: '"推荐理由"评测量规：4 个评测方向 · 19 类细分问题的判定标准与典型案例。' },
       },
     ],
   },

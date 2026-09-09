@@ -3170,6 +3170,8 @@
     background: #fff;
     box-shadow: 3px 4px 0 rgba(40, 32, 20, 0.12);
   }
+  .dpm-paper--wide { width: min(1280px, 96vw); }
+  .dpm-paper--wide .dpm-frame { height: min(78vh, 840px); }
   @media (max-width: 600px) {
     .dpm-overlay { padding: 20px 10px; }
     .dpm-tape { width: 92px; height: 26px; top: -12px; }

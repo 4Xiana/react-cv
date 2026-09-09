@@ -57,7 +57,7 @@ export default function DetailPaperModal({ data, onClose }) {
       aria-modal="true"
       aria-label={title}
     >
-      <div className="dpm-paper">
+      <div className={`dpm-paper${detail.wide ? ' dpm-paper--wide' : ''}`}>
         <span className="dpm-tape" aria-hidden="true" />
         <button className="dpm-close" onClick={onClose} aria-label="关闭弹窗">
           <X size={17} strokeWidth={2.6} />
