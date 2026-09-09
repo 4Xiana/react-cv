@@ -2944,6 +2944,242 @@
     font-weight: 700;
   }
 
+  /* ===== 小节末尾：手绘"看图解/看演示"涂鸦入口 ===== */
+  .tl-see-doodle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 8px 0 2px;
+    padding: 3px 5px 2px 2px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-family: var(--font-hand);
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    color: var(--c);
+    transform: rotate(-1deg);
+    transition: transform 0.22s var(--ease), color 0.22s var(--ease);
+  }
+  .tl-see-doodle .tl-see-icon {
+    width: 22px;
+    height: 22px;
+    flex: none;
+    transition: transform 0.25s var(--ease);
+  }
+  .tl-see-doodle .tl-see-label {
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .tl-see-doodle .tl-see-label::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    bottom: 0;
+    height: 4px;
+    background: currentColor;
+    opacity: 0.5;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4' viewBox='0 0 16 4'%3E%3Cpath d='M0 2.5 Q4 0 8 2.5 T16 2.5' fill='none' stroke='black' stroke-width='2.2'/%3E%3C/svg%3E") repeat-x center / 16px 4px;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4' viewBox='0 0 16 4'%3E%3Cpath d='M0 2.5 Q4 0 8 2.5 T16 2.5' fill='none' stroke='black' stroke-width='2.2'/%3E%3C/svg%3E") repeat-x center / 16px 4px;
+  }
+  .tl-see-doodle:hover {
+    color: var(--accent);
+    transform: rotate(0.4deg) translateY(-1px);
+  }
+  .tl-see-doodle:hover .tl-see-icon {
+    transform: rotate(-14deg) scale(1.12);
+  }
+  .tl-see-doodle:active { transform: scale(0.96); }
+
+  /* ===== 暖白手账纸弹窗 ===== */
+  .dpm-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 18px;
+    overflow-y: auto;
+    background: rgba(43, 38, 30, 0);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    opacity: 0;
+    transition: opacity 0.24s ease, background 0.24s ease, backdrop-filter 0.24s ease;
+  }
+  .dpm-overlay.in {
+    opacity: 1;
+    background: rgba(43, 38, 30, 0.45);
+    backdrop-filter: blur(3px) saturate(0.9);
+    -webkit-backdrop-filter: blur(3px) saturate(0.9);
+  }
+  .dpm-paper {
+    position: relative;
+    width: min(880px, 94vw);
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f2e6;
+    background-image:
+      radial-gradient(ellipse 62% 42% at 16% 8%, rgba(213, 192, 142, 0.28), transparent 62%),
+      radial-gradient(ellipse 55% 48% at 88% 92%, rgba(190, 164, 108, 0.20), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(122, 98, 60, 0.022) 0 1px, transparent 1px 5px);
+    border: 1.5px solid rgba(64, 50, 30, 0.55);
+    border-radius: 17px 23px 18px 21px / 21px 17px 23px 18px;
+    box-shadow: 5px 7px 0 rgba(40, 32, 20, 0.16), 0 22px 55px rgba(40, 32, 20, 0.32);
+    transform: rotate(-2.6deg) scale(0.92);
+    opacity: 0;
+    transition: transform 0.32s cubic-bezier(0.2, 1.25, 0.35, 1), opacity 0.24s ease;
+  }
+  .dpm-overlay.in .dpm-paper {
+    transform: rotate(-0.5deg) scale(1);
+    opacity: 1;
+  }
+  /* 纸浆纤维 */
+  .dpm-paper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.32 0 0 0 0 0.25 0 0 0 0 0.16 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+  }
+  /* 扫描痕：横向明暗带 + 边缘暗角 */
+  .dpm-paper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg,
+        transparent 5%, rgba(120, 95, 55, 0.055) 9%, transparent 14%,
+        transparent 56%, rgba(120, 95, 55, 0.045) 61%, transparent 67%,
+        transparent 82%, rgba(120, 95, 55, 0.05) 87%, transparent 93%),
+      radial-gradient(ellipse 120% 120% at 50% 50%, transparent 62%, rgba(96, 74, 38, 0.10) 100%);
+  }
+  /* 和纸胶带 */
+  .dpm-tape {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    width: 118px;
+    height: 30px;
+    transform: translateX(-50%) rotate(-2.5deg);
+    background: rgba(230, 219, 57, 0.6);
+    border-left: 1px dashed rgba(255, 255, 255, 0.55);
+    border-right: 1px dashed rgba(255, 255, 255, 0.55);
+    box-shadow: 0 2px 5px rgba(60, 45, 20, 0.15);
+    z-index: 3;
+  }
+  .dpm-close {
+    position: absolute;
+    top: 12px;
+    right: 13px;
+    z-index: 4;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    background: rgba(247, 242, 230, 0.75);
+    border: 1.5px solid rgba(64, 50, 30, 0.55);
+    border-radius: 50%;
+    cursor: pointer;
+    transform: rotate(6deg);
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s var(--ease);
+  }
+  .dpm-close:hover {
+    color: #f7f2e6;
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: rotate(0deg) scale(1.08);
+  }
+  .dpm-head {
+    position: relative;
+    z-index: 2;
+    padding: 22px 58px 13px 24px;
+    border-bottom: 1.5px solid rgba(43, 34, 149, 0.35);
+    box-shadow: 0 2.5px 0 -1px rgba(43, 34, 149, 0.18);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .dpm-stamp {
+    flex: none;
+    font-family: var(--font-print-en, var(--font-hand));
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    border-radius: 4px 6px 5px 7px / 6px 4px 7px 5px;
+    padding: 3px 7px 2px;
+    transform: rotate(-4deg);
+    opacity: 0.85;
+  }
+  .dpm-title {
+    margin: 0;
+    font-family: var(--font-title-cn);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+  }
+  .dpm-body {
+    position: relative;
+    z-index: 2;
+    padding: 20px 24px 26px;
+    overflow: auto;
+  }
+  .dpm-fig {
+    margin: 0;
+    text-align: center;
+  }
+  .dpm-img {
+    max-width: 100%;
+    max-height: 64vh;
+    border-radius: 4px 6px 5px 7px / 6px 4px 7px 5px;
+    border: 1px solid rgba(64, 50, 30, 0.4);
+    background: #fffdf7;
+    padding: 8px;
+    box-shadow: 3px 4px 0 rgba(40, 32, 20, 0.12);
+  }
+  .dpm-cap {
+    margin-top: 12px;
+    font-family: var(--font-hand);
+    font-size: 13.5px;
+    color: var(--ink-body);
+    line-height: 1.7;
+  }
+  .dpm-frame {
+    display: block;
+    width: 100%;
+    height: min(66vh, 720px);
+    border: 1px solid rgba(64, 50, 30, 0.45);
+    border-radius: 6px 5px 7px 4px / 4px 7px 5px 6px;
+    background: #fff;
+    box-shadow: 3px 4px 0 rgba(40, 32, 20, 0.12);
+  }
+  @media (max-width: 600px) {
+    .dpm-overlay { padding: 20px 10px; }
+    .dpm-tape { width: 92px; height: 26px; top: -12px; }
+    .dpm-head { padding: 17px 50px 10px 17px; gap: 9px; }
+    .dpm-title { font-size: 15.5px; }
+    .dpm-body { padding: 15px 15px 20px; }
+    .dpm-img { max-height: 58vh; padding: 5px; }
+    .dpm-frame { height: 62vh; }
+  }
+
   /* ===== 红笔涂鸦标记 ===== */
   .mark-ul {
     position: relative;

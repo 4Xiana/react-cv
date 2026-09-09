@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import { INTERNSHIPS } from '../data/resume'
+import DetailPaperModal from './DetailPaperModal'
 
 import logoBytedance from '../img/bytedance.webp'
 import logoJd from '../img/jd.webp'
@@ -24,7 +25,7 @@ const ITEM_OFFSETS = [
   { mt: -90, ty: 6,   rot: 0.7,  logoRot: -5, logoDy: -6 },
 ]
 
-function InternCard({ job, index }) {
+function InternCard({ job, index, onShowDetail }) {
   const [open, setOpen] = useState(false)
   const isLeft = index % 2 === 0
   const logo = LOGO_MAP[job.logo]
@@ -107,6 +108,37 @@ function InternCard({ job, index }) {
                     <li key={k} dangerouslySetInnerHTML={{ __html: item }} />
                   ))}
                 </ul>
+                {sec.detail && (
+                  <button
+                    type="button"
+                    className="tl-see-doodle"
+                    onClick={() => onShowDetail(sec)}
+                    aria-label={`查看「${sec.title}」${sec.detail.type === 'html' ? '演示' : '图示'}`}
+                  >
+                    <svg className="tl-see-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                      <path
+                        d="M12.6 5.6 C16.9 5.3 20 8.5 19.8 12.7 C19.6 16.5 16.7 19.4 12.9 19.3 C9 19.2 6.1 16.2 6.3 12.3 C6.5 8.7 9.1 5.9 12.6 5.6 Z"
+                        stroke="currentColor"
+                        strokeWidth="2.1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M17.7 17.5 L23 22.9"
+                        stroke="currentColor"
+                        strokeWidth="2.4"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M22.4 3.4 L23.1 5.1 L24.9 5.8 L23.1 6.5 L22.4 8.2 L21.7 6.5 L19.9 5.8 L21.7 5.1 Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <span className="tl-see-label">
+                      {sec.detail.cta || (sec.detail.type === 'html' ? '点我看演示' : '点我看图解')}
+                    </span>
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -117,6 +149,8 @@ function InternCard({ job, index }) {
 }
 
 export default function Internship() {
+  const [lightbox, setLightbox] = useState(null)
+
   return (
     <section className="section experience sec-intern" id="internship" data-theme="red">
       <div className="container">
@@ -161,10 +195,17 @@ export default function Internship() {
         <div className="tl-wrap reveal">
           <div className="tl-line" />
           {INTERNSHIPS.map((job, i) => (
-            <InternCard job={job} index={i} key={i} />
+            <InternCard
+              job={job}
+              index={i}
+              key={i}
+              onShowDetail={(sec) => setLightbox({ title: sec.title, detail: sec.detail })}
+            />
           ))}
         </div>
       </div>
+
+      <DetailPaperModal data={lightbox} onClose={() => setLightbox(null)} />
     </section>
   )
 }
